@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       
+    #container{
+        width: 800px;
+        height: 300px;
+        line-height: 0px;
+        font-size: 11px;
+        font-family:  Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 700;
+        padding: 3px;
+        display: grid;
+        border: 2px solid black;
+        border-radius: 5px;
+        grid-template-areas: "partNumber baslik" 
+                             "partNumber tablo" 
+                             "partNumber tablo" 
+                             "partNumber tablo"; 
+        /* grid-gap: 1px; */
+        grid-template-columns: 2fr 29fr;
+        grid-template-rows: 1fr 3fr;
+    }
+    #partNumber{
+        grid-area: partNumber;
+        align-self: center;
+        writing-mode: sideways-lr;
+        letter-spacing: 1px;
+        font-weight: 900;
+        /* text-orientation: ; */
+    }
+    #baslik{
+        height: 75px;
+        grid-area: baslik;
+        display: grid;
+        grid-template-columns: 3fr 4fr 3fr;
+    }
+    #tablo{
+        height: 225px;
+        grid-area: tablo;
+        display: grid;
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-top-left-radius: 8px;
+        grid-template-rows: 6fr 4fr;
+    }
+    #item1{
+        height: 157px;
+        display:grid;
+        border-bottom: 1px solid black;
+        grid-template-rows: 1fr 1fr 4fr;
+    }
+    #item2{
+        height: 68px;
+        display:grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 6fr 5fr 5fr 11fr;
+        grid-template-areas: "bearings delta star nema"
+                             "bearings delta star nema"
+                             "bearings delta star altweg" 
+                             "bearings delta star altweg"
+    }
+    #row1{
+        height: 25px;
+        border-bottom: 1px solid black;
+        padding-left: 5px;
+        /* font-size: 8px; */
+            /* display : grid;
+            grid-auto-flow: column;
+            grid-template-columns: 1fr 4fr 2fr 6fr 4fr 1fr 5fr; */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between
+    }
+    #row2{
+        height: 25px;
+        /* border-bottom:2px solid black; */
+        display : grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(50 , 1fr);
+    }
+    #row3{
+        height: 100px;
+        display : grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(50 , 1fr);
+        grid-template-rows: 1fr;
+    }
+    #row3 div{
+        display: grid; 
+    }
+    #row3 .frequency , #row3 .power{
+        grid-template-rows: 3fr 1fr;
+    }
+    #row3 .eff100,.eff75,.eff50{
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    .voltage{
+        grid-column-start: 1;
+        grid-column-end: 11;
+        border-right: 1px solid black;
+        
+    }
+    .frequency{
+        grid-column-start: 11;
+        grid-column-end: 14;
+        border-right: 1px solid black;
+       
+    }
+    .power{
+        grid-column-start: 14;
+        grid-column-end: 17;
+        border-right: 1px solid black;
+    }
+    .speed{
+        grid-column-start: 17;
+        grid-column-end: 21;
+        border-right: 1px solid black;
+    }
+    .current{
+        grid-column-start: 21;
+        grid-column-end: 29;
+        border-right: 1px solid black;
+    }
+    .powerFactor{
+        grid-column-start: 29;
+        grid-column-end: 34;
+        border-right:1px solid black;
+    }
+    .IECode{
+        grid-column-start: 34;
+        grid-column-end: 39;
+        border-right: 1px solid black;
+    }
+    .eff100{
+        grid-column-start: 39;
+        grid-column-end: 43;
+        border-right: 1px solid black;
+    }
+    .eff75{
+        grid-column-start: 43;
+        grid-column-end: 47;
+        border-right: 1px solid black;
+    }
+    .eff50{
+        grid-column-start: 47;
+        grid-column-end: 51;
+    }
+    .center{
+        text-align: center;
+    }
+
+    
+    #bearings{
+        grid-area: bearings;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 3fr 2fr;
+        padding-left: 10Px;
+    }
+    #bearings #motorSymbol{
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        align-self: center;
+    }
+    #bearings #motorSymbol img{
+        width: 40px;
+        height: 34px;
+    }
+    #bearings #DEbearing{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
+    #bearings #NDEbearing{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 5; 
+    }
+    #bearings #greaseType{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: end-line;
+        font-size: 9px;
+        margin-top: -5px;
+       
+    }
+    #bearings #greasePeriod{
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 1;
+        grid-column-end: end-line;
+    }
+
+    #delta{
+        grid-area: delta;
+        border-left: 1px solid black;
+    }
+    #delta img{
+        width: 142px;
+        height: 68px;
+    }
+    #star{
+        grid-area: star;
+        border-left: 1px solid black;
+    }
+    #star img{
+        width: 142px;
+        height: 68px;
+    }
+    #nema{
+        grid-area: nema;
+        border-left: 1px solid black;
+        display: grid;
+        align-items: center;
+        word-break: break-word;
+        font-size: 9px;
+        padding-left: 5px;
+        letter-spacing: 1.5px;
+    }
+    #altweg{
+        grid-area: altweg;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+        display: grid;
+        align-items: center;
+        padding-left: 5px;
+    }
+    #row3 div div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid black;
+    }
+    #baslik #baslikLeft{
+        height: 75px;
+        display: flex;
+        padding-left: 20px;
+    }
+    #baslik #baslikLeft img{
+        width: 75px;
+        height: 60px
+    }
+    #baslik #baslikLeft h1{
+        margin-left: 10px;
+    }
+
+    #baslik #baslikMiddle{
+        height: 75px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-width: 0;
+    }
+    #baslik #baslikRight{
+        height: 75px;
+    }
+
+    #baslik #serialNum{
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    #baslik #smoke{
+        font-size: 9px;
+    }
+    #standardLogos{
+        margin-top: 10px;
+    }
+    #standardLogos img{
+        width: 35px;
+        height: 35px
+    }
+    #eac{
+        margin-left: 30px;
+    }
+    #caeText{
+       
+    }
+    #baslikRight{
+        display: flex;
+        justify-content: space-between;
+    }
+    #standardIEC{
+        align-self: end;
+        
+    }
+    </style>
+</head>
+<body>
+    
+    
+</body>
+</html>
